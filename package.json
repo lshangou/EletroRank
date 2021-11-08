@@ -1,0 +1,19 @@
+{
+  "name": "eletrorank",
+  "version": "0.1.0",
+  "description": "Repositório para Trabalho de Qualidade de Software. Projeto base para um sistema de ranquamento de Produtos eletrônicos. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lshangou/EletroRank.git"
+  },
+  "author": "Lucas Menezes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lshangou/EletroRank/issues"
+  },
+  "homepage": "https://github.com/lshangou/EletroRank#readme"
+}
