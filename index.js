@@ -1,5 +1,7 @@
 const express = require('express')
-const app1 = express()
+const helmet = require("helmet")
+const app1 = express() // Compliant
+app1.use(helmet.hidePoweredBy())
 const port = 3000
 
 const mongoose = require('mongoose')
@@ -9,19 +11,17 @@ async function main() {
   await mongoose.connect('mongodb+srv://tm:tm@tournamentmanager.1mtiw.mongodb.net/eletroRank?retryWrites=true&w=majority');
 }
 
-// Teste do Banco
-const kittySchema = new mongoose.Schema({
-  name: String
-});
-const Kitten = mongoose.model('Kitten', kittySchema);
-const silence = new Kitten({ name: 'Silence' });
-console.log(silence.name); // 'Silence'
+// Modelo de Produto
+const Product = require ('./models/Product')
+Product.find({}, function(err, docs) {
+  console.log(docs)
+})
 
-app.get('/', (req, res) => {
+app1.get('/', (req, res) => {
   res.send('Hello World')
 })
 
 
-app.listen(port, () => {
+app1.listen(port, () => {
   console.log('EletroRank aberto e escutando em http://localhost:' + port)
 })
