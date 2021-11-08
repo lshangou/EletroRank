@@ -13,6 +13,11 @@ async function main() {
 
 // Modelo de Produto
 const Product = require ('./models/Product')
+
+const iphone = new Product({nome: 'IPhone', preco: '4000', tipo: 'celular', descricao: 'Iphone é um celular da apple.'})
+iphone.save()
+console.log(iphone.nome)
+
 Product.find({}, function(err, docs) {
   console.log(docs)
 })
