@@ -8,8 +8,15 @@ const app1 = express() // Compliant
 app1.use(helmet.hidePoweredBy())
 const port = 3000
 
+let diskUpload = multer({
+  storage: diskStorage,
+  limits: {
+     fileSize: 8000000 // Compliant: 8MB
+  }
+});
+
 app1.use(bodyParser.json()) // for parsing application/json
-app1.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+app1.use(bodyParser.urlencoded({ extended: true, limit: "2mb"})) // for parsing application/x-www-form-urlencoded
 
 app1.set('view engine', 'ejs');
 app1.set('views', path.join(__dirname, '/views'));
