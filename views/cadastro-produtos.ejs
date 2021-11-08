@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Produtos</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+</head>
+<body>
+  <main>
+    <a href="/">Voltar</a>
+    <h1>Cadastro de Produtos</h1>
+    <fieldset>
+        <label for="nome">Nome do Produto:</label>
+        <input type="text" id="nome">
+        <label for="preco">Preço do Produto:</label>
+        <input type="text" id="preco">
+        <label for="tipo">Tipo do Produto:</label>
+        <input type="text" id="tipo">
+        <label for="descricao">Descricao do Produto:</label>
+        <textarea name="descricao" id="descricao" cols="30" rows="10"></textarea>
+        <button onclick="cadastrar()">Cadastrar</button>
+    </fieldset>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    function cadastrar() {
+      axios.post('/cadastrar-produto', {
+        nome: document.getElementById('nome').value,
+        preco: document.getElementById('preco').value,
+        tipo: document.getElementById('tipo').value,
+        descricao: document.getElementById('descricao').value
+      })
+      .then(function (response) {
+        // handle success
+        console.log(response);
+        alert('Produto ' + response.data.nome + ' cadastrado com sucesso.')
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+    }
+  </script>
+</body>
+</html>
