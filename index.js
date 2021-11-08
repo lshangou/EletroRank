@@ -3,17 +3,17 @@ const helmet = require('helmet')
 const path = require('path')
 const bodyParser = require('body-parser')
 const multer = require('multer') // v1.0.5
-const upload = multer() // for parsing multipart/form-data
 const app1 = express() // Compliant
 app1.use(helmet.hidePoweredBy())
 const port = 3000
 
-let diskUpload = multer({
+
+const diskUpload = multer({
   storage: diskStorage,
   limits: {
-     fileSize: 8000000 // Compliant: 8MB
+      fileSize: 8000000 // Compliant: 8MB
   }
-});
+}) // for parsing multipart/form-data
 
 app1.use(bodyParser.json()) // for parsing application/json
 app1.use(bodyParser.urlencoded({ extended: true, limit: "2mb"})) // for parsing application/x-www-form-urlencoded
