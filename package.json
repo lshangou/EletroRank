@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/lshangou/EletroRank/issues"
   },
-  "homepage": "https://github.com/lshangou/EletroRank#readme"
+  "homepage": "https://github.com/lshangou/EletroRank#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.0.12"
+  }
 }
