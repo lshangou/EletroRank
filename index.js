@@ -41,7 +41,7 @@ app1.get('/product-form', (req, res) => {
 })
 
 app1.get('/product-list', (req, res) => {
-  const products = Product.find({}, function(err, docs) {
+  Product.find({}, function(err, docs) {
     console.log(docs);
     res.render('produtos', {products: docs})
   });
