@@ -1,8 +1,12 @@
 const express = require('express')
-const helmet = require("helmet")
+const helmet = require('helmet')
+const path = require('path')
 const app1 = express() // Compliant
 app1.use(helmet.hidePoweredBy())
 const port = 3000
+
+app1.set('view engine', 'ejs');
+app1.set('views', path.join(__dirname, '/views'));
 
 const mongoose = require('mongoose')
 main().catch(err => console.log(err))
@@ -11,19 +15,19 @@ async function main() {
   await mongoose.connect('mongodb+srv://tm:tm@tournamentmanager.1mtiw.mongodb.net/eletroRank?retryWrites=true&w=majority');
 }
 
+
 // Modelo de Produto
 const Product = require ('./models/Product')
 
-const iphone = new Product({nome: 'IPhone', preco: '4000', tipo: 'celular', descricao: 'Iphone é um celular da apple.'})
-iphone.save()
-console.log(iphone.nome)
-
-Product.find({}, function(err, docs) {
-  console.log(docs)
+app1.get('/', (req, res) => {
+  res.render('index')
 })
 
-app1.get('/', (req, res) => {
-  res.send('Hello World')
+app1.get('/product-list', (req, res) => {
+  const products = Product.find({}, function(err, docs) {
+    console.log(docs);
+    res.render('produtos', {products: docs})
+  });
 })
 
 
