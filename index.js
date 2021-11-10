@@ -9,7 +9,7 @@ const port = 3000
 
 
 const diskUpload = multer({
-  storage: diskStorage,
+  // storage: diskStorage, Comentado para retirar
   limits: {
       fileSize: 8000000 // Compliant: 8MB
   }
