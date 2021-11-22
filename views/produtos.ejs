@@ -1,21 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Produtos</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-</head>
-<body>
-  <main>
-    <a href="/">Voltar</a>
-    <h1>Produtos cadastrados:</h1>
-    <ul>
+<%- include('includes/header', {title: 'Produtos'}) %>
+  <main class="container mt-3">
+    <div class="row">
+      <div class="col-12">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Cadastro de Produtos</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+    <div class="row">
+      <h1>Produtos cadastrados:</h1>
+      <!-- products vem do controller da rota. -->
       <% for(let item of products) { %>
-        <li>Nome: <%= item.nome %> | Preço: <%= item.preco %></li>
+        <div class="col-2 pa-3 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><%= item.nome %></h5>
+              <p class="card-text"><%= item.descricao %></p>
+              <span>R$ <%= item.preco %></span>
+              <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+            </div>
+          </div>
+        </div>
       <% } %>
-    </ul>
+    </div>
   </main>
-</body>
-</html>
+<%- include('includes/footer') %>

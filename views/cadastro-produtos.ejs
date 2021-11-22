@@ -1,27 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadastro de Produtos</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-</head>
-<body>
-  <main>
-    <a href="/">Voltar</a>
-    <h1>Cadastro de Produtos</h1>
-    <fieldset>
-        <label for="nome">Nome do Produto:</label>
-        <input type="text" id="nome">
-        <label for="preco">Preço do Produto:</label>
-        <input type="text" id="preco">
-        <label for="tipo">Tipo do Produto:</label>
-        <input type="text" id="tipo">
-        <label for="descricao">Descricao do Produto:</label>
-        <textarea name="descricao" id="descricao" cols="30" rows="10"></textarea>
-        <button onclick="cadastrar()">Cadastrar</button>
-    </fieldset>
+<%- include('includes/header', {title: 'Cadastro de Produtos'}) %>
+  <main class="container mt-3">
+    <div class="row">
+      <div class="col-12">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Cadastro de Produtos</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+    <div class="row">
+      <div class="mb-3 col-4">
+        <label for="nome" class="form-label">Nome do Produto:</label>
+        <input class="form-control" placeholder="Nome do produto" type="text" id="nome">
+      </div>
+      <div class="mb-3 col-4">
+        <label for="preco" class="form-label">Preço do Produto:</label>
+        <input class="form-control" placeholder="Preço do Produto" type="text" id="preco">
+      </div>
+      <div class="mb-3 col-4">
+        <label for="tipo" class="form-label">Tipo do Produto:</label>
+        <input class="form-control" placeholder="Tipo do Produto" type="text" id="tipo">
+      </div>
+      <div class="mb-3 col-12">
+        <label for="descricao" class="form-label">Descrição do Produto:</label>
+        <textarea class="form-control" placeholder="Descrição do Produto" name="descricao" id="descricao"></textarea>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary" onclick="cadastrar()">Cadastrar</button>
+      </div>
+    </div>
+    <div id="alert">
+
+    </div>
+    
   </main>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
@@ -35,7 +48,7 @@
       .then(function (response) {
         // handle success
         console.log(response);
-        alert('Produto ' + response.data.nome + ' cadastrado com sucesso.')
+        document.getElementById('alert').innerHTML = '<div id="success" class="alert alert-success alert-dismissible fade show mt-3" role="alert"><strong>Sucesso!</strong> O produto ' + response.data.nome + ' foi cadastrado.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
       })
       .catch(function (error) {
         // handle error
@@ -43,5 +56,4 @@
       })
     }
   </script>
-</body>
-</html>
+<%- include('includes/footer') %>

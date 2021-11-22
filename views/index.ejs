@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-</head>
-<body>
-  <h1>Lista de Links</h1>
-  <p>Links para endpoints da aplicação.</p>
+<%- include('includes/header', {title: 'Home'}) %>
+<main class="container mt-3">
+  <h1>EletroRank</h1>
+  <p>Sua avaliação de produtos em dia.</p>
   <ul>
     <li><a href="/product-form">Cadastro de Produtos</a></li>
     <li><a href="/product-list">Lista de Produtos</a></li>
   </ul>
-</body>
-</html>
+</main>
+<%- include('includes/footer') %>
