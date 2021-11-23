@@ -5,22 +5,19 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Lista de Produtos</li>
+            <li class="breadcrumb-item active" aria-current="page">Lista de Usuários</li>
           </ol>
         </nav>
       </div>
     </div>
     <div class="row">
-      <h1>Produtos cadastrados:</h1>
-      <!-- products vem do controller da rota. -->
-      <% for(let item of products) { %>
+      <h1>Pessoas cadastradas:</h1>
+      <% for(let item of persons) { %>
         <div class="col-2 pa-3 mb-3">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title"><%= item.nome %></h5>
-              <p class="card-text"><%= item.descricao %></p>
-              <span>R$ <%= item.preco %></span>
-              <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+              <p class="card-text"><%= item.email %></p>
             </div>
           </div>
         </div>

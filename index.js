@@ -34,19 +34,29 @@ async function main() {
 
 // Modelo de Produto
 const Product = require ('./models/Product')
+const Person = require ('./models/Person')
 
 app1.get('/', (req, res) => {
-  res.render('index')
+  res.render('index', {user: {}})
 })
 
 app1.get('/product-form', (req, res) => {
-  res.render('cadastro-produtos')
+  res.render('cadastro-produtos', {user: {}})
+})
+app1.get('/register', (req, res) => {
+  res.render('register-form', {user: {}})
 })
 
 app1.get('/product-list', (req, res) => {
   Product.find({}, function(err, docs) {
     console.log(docs);
-    res.render('produtos', {products: docs})
+    res.render('produtos', {products: docs, user: {}})
+  });
+})
+app1.get('/person-list', (req, res) => {
+  Person.find({}, function(err, docs) {
+    console.log(docs);
+    res.render('pessoas', {persons: docs, user: {}})
   });
 })
 
@@ -54,6 +64,12 @@ app1.post('/cadastrar-produto', function (req, res, next) {
   console.log(req.body)
   const newProduct = new Product({nome: req.body.nome, preco: req.body.preco, tipo: req.body.tipo, descricao: req.body.descricao})
   newProduct.save()
+  res.json(req.body)
+})
+app1.post('/cadastrar-pessoa', function (req, res, next) {
+  console.log(req.body)
+  const newPerson = new Person({nome: req.body.nome, email: req.body.email, senha: req.body.senha})
+  newPerson.save()
   res.json(req.body)
 })
 

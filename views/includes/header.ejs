@@ -29,9 +29,15 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="/product-form">Cadastro de Produtos</a></li>
+            <li><a class="dropdown-item" href="/person-list">Lista de Usuarios</a></li>
           </ul>
         </li>
       </ul>
+      <% if(!user.name) { %>
+        <a href="/register" class="btn btn-success">Cadastre-se</a>
+      <% } else { %>
+        <span>Bem Vindo, <%= user.nome %>! <a href="/logout" class="btn btn-danger">Sair</a></span>
+      <% } %>
     </div>
   </div>
 </nav>
