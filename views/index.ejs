@@ -1,10 +1,50 @@
 <%- include('includes/header', {title: 'Home'}) %>
+
 <main class="container mt-3">
-  <h1>EletroRank</h1>
-  <p>Sua avaliação de produtos em dia.</p>
-  <ul>
-    <li><a href="/product-form">Cadastro de Produtos</a></li>
-    <li><a href="/product-list">Lista de Produtos</a></li>
-  </ul>
+  <div class="row">
+    <div class="col-12">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active"><a href="/">Home</a></li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="max-height: 550px;">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img style="max-height: 550px; width: auto; object-fit: cover;" src="/images/carrousel/banner1.png" class="d-block w-100" alt="Novos Telefones">
+          </div>
+          <div class="carousel-item">
+            <img style="max-height: 550px; width: auto; object-fit: cover;" src="/images/carrousel/banner2.png" class="d-block w-100" alt="Novos Consoles">
+          </div>
+          <div class="carousel-item">
+            <img style="max-height: 550px; width: auto; object-fit: cover;" src="/images/carrousel/banner3.png" class="d-block w-100" alt="Promoções de Usuário em breve. Cadastre-se para participar!">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <div class="col-12">
+      <h1>EletroRank</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum ab laborum quae et numquam nostrum aut, necessitatibus eveniet atque nemo ipsa officiis maxime dolore, optio reprehenderit doloribus. Numquam, aliquid neque!</p>
+      <a href="/product-list" class="btn btn-primary">Lista de Produtos</a>
+      <a href="/product-form" class="btn btn-danger">Cadastro de Produtos</a>
+    </div>
+  </div>
 </main>
 <%- include('includes/footer') %>

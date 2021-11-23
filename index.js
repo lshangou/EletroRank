@@ -15,6 +15,9 @@ const diskUpload = multer({
   }
 }) // for parsing multipart/form-data
 
+// Arquivos estáticos
+app1.use(express.static('public'))
+
 app1.use(bodyParser.json()) // for parsing application/json
 app1.use(bodyParser.urlencoded({ extended: true, limit: "2mb"})) // for parsing application/x-www-form-urlencoded
 
@@ -24,7 +27,7 @@ app1.set('views', path.join(__dirname, '/views'));
 const mongoose = require('mongoose')
 main().catch(err => console.log(err))
 async function main() {
-  // Cluster do Mongo "TournamentManager" reutilizado por questão de praticidade, tendo em vista que é um banco de dados temporário.
+  // Cluster do Mongo "TournamentManager" reutilizado por questão de praticidade (do trabalho de Back End), tendo em vista que é um banco de dados temporário.
   await mongoose.connect('mongodb+srv://tm:tm@tournamentmanager.1mtiw.mongodb.net/eletroRank?retryWrites=true&w=majority');
 }
 
